@@ -1,11 +1,13 @@
 import * as React from "react";
-import ReactDOM from "react-dom";
-import { ThemeProvider } from "styled-components";
-import { EditorView, Decoration } from "prosemirror-view";
+
+import { Decoration, EditorView } from "prosemirror-view";
+import { dark as darkTheme, light as lightTheme } from "../styles/theme";
+
+import Editor from "../";
 import Extension from "../lib/Extension";
 import Node from "../nodes/Node";
-import { light as lightTheme, dark as darkTheme } from "../styles/theme";
-import Editor from "../";
+import { ThemeProvider } from "styled-components";
+import { createRoot } from "react-dom/client";
 
 type Component = (options: {
   node: Node;
@@ -57,10 +59,8 @@ export default class ComponentView {
       getPos: this.getPos,
     });
 
-    ReactDOM.render(
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>,
-      this.dom
-    );
+    const root = createRoot(this.dom);
+    root.render(<ThemeProvider theme={theme}>{children}</ThemeProvider>);
   }
 
   update(node) {
@@ -93,7 +93,8 @@ export default class ComponentView {
 
   destroy() {
     if (this.dom) {
-      ReactDOM.unmountComponentAtNode(this.dom);
+      const root = createRoot(this.dom);
+      root.unmount();
     }
     this.dom = null;
   }

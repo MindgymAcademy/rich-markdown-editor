@@ -1,12 +1,14 @@
-import { InputRule } from "prosemirror-inputrules";
-import ReactDOM from "react-dom";
 import * as React from "react";
-import { Plugin } from "prosemirror-state";
-import { isInTable } from "prosemirror-tables";
-import { findParentNode } from "prosemirror-utils";
-import { PlusIcon } from "outline-icons";
+
 import { Decoration, DecorationSet } from "prosemirror-view";
+
 import Extension from "../lib/Extension";
+import { InputRule } from "prosemirror-inputrules";
+import { Plugin } from "prosemirror-state";
+import { PlusIcon } from "outline-icons";
+import { createRoot } from "react-dom/client";
+import { findParentNode } from "prosemirror-utils";
+import { isInTable } from "prosemirror-tables";
 
 const MAX_MATCH = 500;
 const OPEN_REGEX = /^\/(\w+)?$/;
@@ -46,7 +48,8 @@ export default class BlockMenuTrigger extends Extension {
     const button = document.createElement("button");
     button.className = "block-menu-trigger";
     button.type = "button";
-    ReactDOM.render(<PlusIcon color="currentColor" />, button);
+    const root = createRoot(button);
+    root.render(<PlusIcon color="currentColor" />);
 
     return [
       new Plugin({
@@ -93,9 +96,9 @@ export default class BlockMenuTrigger extends Extension {
 
             return false;
           },
-          decorations: state => {
+          decorations: (state) => {
             const parent = findParentNode(
-              node => node.type.name === "paragraph"
+              (node) => node.type.name === "paragraph"
             )(state.selection);
 
             if (!parent) {
