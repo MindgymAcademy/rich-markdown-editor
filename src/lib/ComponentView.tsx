@@ -27,6 +27,7 @@ export default class ComponentView {
   decorations: Decoration<{ [key: string]: any }>[];
   isSelected = false;
   dom: HTMLElement | null;
+  root;
 
   // See https://prosemirror.net/docs/ref/#view.NodeView
   constructor(
@@ -45,6 +46,7 @@ export default class ComponentView {
       : document.createElement("div");
 
     this.renderElement();
+    this.root = createRoot(this.dom);
   }
 
   renderElement() {
@@ -59,8 +61,7 @@ export default class ComponentView {
       getPos: this.getPos,
     });
 
-    const root = createRoot(this.dom);
-    root.render(<ThemeProvider theme={theme}>{children}</ThemeProvider>);
+    this.root.render(<ThemeProvider theme={theme}>{children}</ThemeProvider>);
   }
 
   update(node) {
