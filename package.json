@@ -1,5 +1,5 @@
 {
-  "name": "rich-markdown-editor",
+  "name": "@kyna/editor",
   "description": "A rich text editor with Markdown shortcuts",
   "version": "12.0.0",
   "main": "dist/index.js",
