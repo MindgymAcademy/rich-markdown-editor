@@ -98,8 +98,7 @@ export default class ComponentView {
 
   destroy() {
     if (this.dom) {
-      const root = createRoot(this.dom);
-      root.unmount();
+      this.root?.unmount();
     }
     this.dom = null;
   }
