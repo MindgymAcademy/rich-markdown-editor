@@ -1,7 +1,8 @@
+import CommandMenu, { Props } from "./CommandMenu";
+
+import BlockMenuItem from "./BlockMenuItem";
 import React from "react";
 import { findParentNode } from "prosemirror-utils";
-import CommandMenu, { Props } from "./CommandMenu";
-import BlockMenuItem from "./BlockMenuItem";
 import getMenuItems from "../menus/block";
 
 type BlockMenuProps = Omit<
@@ -17,7 +18,7 @@ class BlockMenu extends React.Component<BlockMenuProps> {
 
   clearSearch = () => {
     const { state, dispatch } = this.props.view;
-    const parent = findParentNode(node => !!node)(state.selection);
+    const parent = findParentNode((node) => !!node)(state.selection);
 
     if (parent) {
       dispatch(state.tr.insertText("", parent.pos, state.selection.to));
