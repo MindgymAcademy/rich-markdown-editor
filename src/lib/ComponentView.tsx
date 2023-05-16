@@ -61,7 +61,7 @@ export default class ComponentView {
       getPos: this.getPos,
     });
 
-    if (!this.root) {
+    if (!this.root && this.dom) {
       this.root = createRoot(this.dom);
     }
 

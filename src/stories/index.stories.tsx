@@ -1,8 +1,9 @@
+import { Meta, Story } from "@storybook/react";
+
 import Editor from "./index";
-import debounce from "lodash/debounce";
 import { Props } from "..";
 import React from "react";
-import { Story, Meta } from "@storybook/react/types-6-0";
+import debounce from "lodash/debounce";
 
 export default {
   title: "Editor",
@@ -25,7 +26,7 @@ export default {
   },
 } as Meta;
 
-const Template: Story<Props> = args => <Editor {...args} />;
+const Template: Story<Props> = (args) => <Editor {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -189,7 +190,7 @@ Persisted.args = {
     `# Persisted
   
 The contents of this editor are persisted to local storage on change (edit and reload)`,
-  onChange: debounce(value => {
+  onChange: debounce((value) => {
     const text = value();
     localStorage.setItem("saved", text);
   }, 250),

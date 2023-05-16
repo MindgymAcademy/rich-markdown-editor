@@ -1,6 +1,7 @@
-import * as React from "react";
+import styled, { ExecutionProps, withTheme } from "styled-components";
+
+import React from "react";
 import scrollIntoView from "smooth-scroll-into-view-if-needed";
-import styled, { withTheme } from "styled-components";
 import theme from "../styles/theme";
 
 export type Props = {
@@ -8,13 +9,13 @@ export type Props = {
   disabled?: boolean;
   onClick: () => void;
   theme: typeof theme;
-  icon?: typeof React.Component | React.FC<any>;
+  icon?: typeof React.Component | React.FC;
   title: React.ReactNode;
   shortcut?: string;
   containerId?: string;
 };
 
-function BlockMenuItem({
+const BlockMenuItem: React.FC<Props> = ({
   selected,
   disabled,
   onClick,
@@ -22,16 +23,16 @@ function BlockMenuItem({
   shortcut,
   icon,
   containerId = "block-menu-container",
-}: Props) {
+}) => {
   const Icon = icon;
 
   const ref = React.useCallback(
-    node => {
+    (node: HTMLButtonElement) => {
       if (selected && node) {
         scrollIntoView(node, {
           scrollMode: "if-needed",
           block: "center",
-          boundary: parent => {
+          boundary: (parent: HTMLElement) => {
             // All the parent elements of your target are checked until they
             // reach the #block-menu-container. Prevents body and other parent
             // elements from being scrolled
@@ -63,7 +64,7 @@ function BlockMenuItem({
       {shortcut && <Shortcut>{shortcut}</Shortcut>}
     </MenuItem>
   );
-}
+};
 
 const MenuItem = styled.button<{
   selected: boolean;
@@ -78,12 +79,12 @@ const MenuItem = styled.button<{
   height: 36px;
   cursor: pointer;
   border: none;
-  opacity: ${props => (props.disabled ? ".5" : "1")};
-  color: ${props =>
+  opacity: ${(props) => (props.disabled ? ".5" : "1")};
+  color: ${(props) =>
     props.selected
       ? props.theme.blockToolbarTextSelected
       : props.theme.blockToolbarText};
-  background: ${props =>
+  background: ${(props) =>
     props.selected
       ? props.theme.blockToolbarSelectedBackground ||
         props.theme.blockToolbarTrigger
@@ -93,8 +94,8 @@ const MenuItem = styled.button<{
 
   &:hover,
   &:active {
-    color: ${props => props.theme.blockToolbarTextSelected};
-    background: ${props =>
+    color: ${(props) => props.theme.blockToolbarTextSelected};
+    background: ${(props) =>
       props.selected
         ? props.theme.blockToolbarSelectedBackground ||
           props.theme.blockToolbarTrigger
@@ -103,7 +104,7 @@ const MenuItem = styled.button<{
 `;
 
 const Shortcut = styled.span`
-  color: ${props => props.theme.textSecondary};
+  color: ${(props) => props.theme.textSecondary};
   flex-grow: 1;
   text-align: right;
 `;
