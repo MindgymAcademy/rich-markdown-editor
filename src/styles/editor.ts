@@ -7,10 +7,6 @@ export const StyledEditor = styled("div")<{
 }>`
   color: ${props => props.theme.text};
   background: ${props => props.theme.background};
-  font-family: ${props => props.theme.fontFamily};
-  font-weight: ${props => props.theme.fontWeight};
-  font-size: 1em;
-  line-height: 1.7em;
   width: 100%;
 
   .ProseMirror {
@@ -129,12 +125,10 @@ export const StyledEditor = styled("div")<{
   h5,
   h6 {
     margin: 1em 0 0.5em;
-    font-weight: 500;
     cursor: text;
 
     &:not(.placeholder):before {
-      display: ${props => (props.readOnly ? "none" : "inline-block")};
-      font-family: ${props => props.theme.fontFamilyMono};
+      display: ${props => (props.readOnly ? "none" : "inline-block")};   
       color: ${props => props.theme.textSecondary};
       font-size: 13px;
       line-height: 0;
@@ -226,7 +220,6 @@ export const StyledEditor = styled("div")<{
     margin: 0;
     padding: 0;
     text-align: left;
-    font-family: ${props => props.theme.fontFamilyMono};
     font-size: 14px;
     line-height: 0;
     width: 12px;
@@ -540,7 +533,6 @@ export const StyledEditor = styled("div")<{
     border: 1px solid ${props => props.theme.codeBorder};
     background: ${props => props.theme.codeBackground};
     padding: 3px 4px;
-    font-family: ${props => props.theme.fontFamilyMono};
     font-size: 80%;
   }
 
@@ -617,7 +609,6 @@ export const StyledEditor = styled("div")<{
     border: 1px solid ${props => props.theme.codeBorder};
 
     -webkit-font-smoothing: initial;
-    font-family: ${props => props.theme.fontFamilyMono};
     font-size: 13px;
     direction: ltr;
     text-align: left;
@@ -1007,11 +998,6 @@ export const StyledEditor = styled("div")<{
 
     .page-break {
       opacity: 0;
-    }
-
-    em,
-    blockquote {
-      font-family: "SF Pro Text", ${props => props.theme.fontFamily};
     }
   }
 `;

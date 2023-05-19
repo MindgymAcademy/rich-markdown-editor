@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import scrollIntoView from "smooth-scroll-into-view-if-needed";
 import styled from "styled-components";
 
@@ -58,7 +59,6 @@ const ListItem = styled.li<{
   color: ${props => props.theme.toolbarItem};
   background: ${props =>
     props.selected ? props.theme.toolbarHoverBackground : "transparent"};
-  font-family: ${props => props.theme.fontFamily};
   text-decoration: none;
   overflow: hidden;
   white-space: nowrap;
