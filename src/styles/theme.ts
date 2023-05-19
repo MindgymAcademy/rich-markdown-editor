@@ -12,6 +12,7 @@ const colors = {
   greyMid: "#DCE4EE",
   grey: "#EDF1F6",
   greyLight: "#F6F9FC",
+  transparent: "transparent",
 };
 
 export const base = {
@@ -69,6 +70,7 @@ export const base = {
 
 export const light = {
   ...base,
+  background: colors.transparent,
   text: colors.base,
   code: colors.lightBlack,
   cursor: colors.black,
@@ -95,6 +97,7 @@ export const light = {
 
 export const dark = {
   ...base,
+  background: colors.transparent,
   text: colors.almostWhite,
   code: colors.almostWhite,
   cursor: colors.white,
