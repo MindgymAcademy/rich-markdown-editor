@@ -1,3 +1,7 @@
+import "@fontsource/montserrat";
+import "@fontsource/karla";
+import "@fontsource/inconsolata";
+
 import type { Preview } from "@storybook/react";
 
 const preview: Preview = {
