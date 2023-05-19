@@ -25,6 +25,7 @@ export const base = {
   zIndex: 100,
   link: colors.primary,
   placeholder: "#A4B0CD",
+  heading: colors.almostBlack,
   textSecondary: "#A4B0CD",
   textLight: colors.white,
   textHighlight: "#cce5ff",
@@ -68,7 +69,6 @@ export const base = {
 
 export const light = {
   ...base,
-  background: colors.white,
   text: colors.base,
   code: colors.lightBlack,
   cursor: colors.black,
@@ -95,7 +95,6 @@ export const light = {
 
 export const dark = {
   ...base,
-  background: colors.almostBlack,
   text: colors.almostWhite,
   code: colors.almostWhite,
   cursor: colors.white,
