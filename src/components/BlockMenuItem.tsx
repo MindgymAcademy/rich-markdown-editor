@@ -1,4 +1,4 @@
-import styled, { ExecutionProps, withTheme } from "styled-components";
+import styled, { withTheme } from "styled-components";
 
 import React from "react";
 import scrollIntoView from "smooth-scroll-into-view-if-needed";
@@ -79,12 +79,12 @@ const MenuItem = styled.button<{
   height: 36px;
   cursor: pointer;
   border: none;
-  opacity: ${(props) => (props.disabled ? ".5" : "1")};
-  color: ${(props) =>
+  opacity: ${props => (props.disabled ? ".5" : "1")};
+  color: ${props =>
     props.selected
       ? props.theme.blockToolbarTextSelected
       : props.theme.blockToolbarText};
-  background: ${(props) =>
+  background: ${props =>
     props.selected
       ? props.theme.blockToolbarSelectedBackground ||
         props.theme.blockToolbarTrigger
@@ -94,8 +94,8 @@ const MenuItem = styled.button<{
 
   &:hover,
   &:active {
-    color: ${(props) => props.theme.blockToolbarTextSelected};
-    background: ${(props) =>
+    color: ${props => props.theme.blockToolbarTextSelected};
+    background: ${props =>
       props.selected
         ? props.theme.blockToolbarSelectedBackground ||
           props.theme.blockToolbarTrigger
@@ -104,7 +104,7 @@ const MenuItem = styled.button<{
 `;
 
 const Shortcut = styled.span`
-  color: ${(props) => props.theme.textSecondary};
+  color: ${props => props.theme.textSecondary};
   flex-grow: 1;
   text-align: right;
 `;
