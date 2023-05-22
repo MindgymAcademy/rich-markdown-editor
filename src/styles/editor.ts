@@ -7,8 +7,8 @@ export const StyledEditor = styled("div")<{
 }>`
   color: ${props => props.theme.text};
   font-family: ${props => props.theme.fontFamilySerif};
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   width: 100%;
 
   .ProseMirror {
@@ -153,32 +153,17 @@ export const StyledEditor = styled("div")<{
   }
 
   h1 {
-    font-size: 3rem;
-    line-height: 1;
-  }
-
-  h2 {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-  
-  h3 {
     font-size: 1.875rem;
     line-height: 2.25rem;
   }
-  
-  h4 {
+
+  h2 {
     font-size: 1.5rem;
     line-height: 2rem;
   }
   
-  h5 {
+  h3 {
     font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-  
-  h6 {
-    font-size: 1.125rem;
     line-height: 1.75rem;
   }
 
