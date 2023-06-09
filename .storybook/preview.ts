@@ -1,5 +1,7 @@
 import "@fontsource/montserrat";
+import "@fontsource/montserrat/600.css";
 import "@fontsource/karla";
+import "@fontsource/karla/600.css";
 import "@fontsource/inconsolata";
 
 import type { Preview } from "@storybook/react";
