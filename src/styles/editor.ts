@@ -29,18 +29,6 @@ export const StyledEditor = styled("div")<{
     white-space: pre-wrap;
   }
 
-  ol {
-    list-style-type: decimal;
-    margin-left: 2rem;
-  }
-
-  ul {
-    list-style-type: disc;
-    margin-left: 2rem;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
   li {
     position: relative;
     font-size: 1rem;
@@ -449,8 +437,18 @@ export const StyledEditor = styled("div")<{
 
   ul,
   ol {
-    margin: ${(props) => (props.rtl ? "0 -26px 0 0.1em" : "0 0.1em 0 -26px")};
-    padding: ${(props) => (props.rtl ? "0 44px 0 0" : "0 0 0 44px")};
+    margin: ${(props) =>
+      props.rtl ? "0 -0.5rem 0 0.1em" : "0 0.1em 0 -0.5rem"};
+    padding: ${(props) =>
+      props.rtl ? "0 2.5rem 0 0.1em" : "0 0.1em 0 2.5rem"};
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  ul {
+    list-style: disc;
   }
 
   ol ol {
