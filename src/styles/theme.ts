@@ -99,6 +99,8 @@ export const dark = {
   ...base,
   background: colors.transparent,
   text: colors.almostWhite,
+  textSecondary: colors.grey,
+  heading: colors.grey,
   code: colors.almostWhite,
   cursor: colors.white,
   divider: "#4E5C6E",
